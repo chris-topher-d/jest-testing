@@ -1,5 +1,18 @@
 const functions = require('./functions');
 
+// Runs BEFORE each test runs
+// beforeEach(() => initDatabase());
+// Runs AFTER each test runs
+// afterEach(() => closeDatabase());
+
+// Runs BEFORE all the tests run
+beforeAll(() => initDatabase());
+// Runs AFTER all the tests have run
+afterAll(() => closeDatabase());
+
+const initDatabase = () => console.log('Database initialized');
+const closeDatabase = () => console.log('Database closed');
+
 // toBe
 test('Adds 2 + 2 to equal 4', () => {
   expect(functions.add(2, 2)).toBe(4);
