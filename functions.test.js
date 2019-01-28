@@ -6,12 +6,29 @@ const functions = require('./functions');
 // afterEach(() => closeDatabase());
 
 // Runs BEFORE all the tests run
-beforeAll(() => initDatabase());
+// beforeAll(() => initDatabase());
 // Runs AFTER all the tests have run
-afterAll(() => closeDatabase());
+// afterAll(() => closeDatabase());
 
-const initDatabase = () => console.log('Database initialized');
-const closeDatabase = () => console.log('Database closed');
+// const initDatabase = () => console.log('Database initialized');
+// const closeDatabase = () => console.log('Database closed');
+
+const nameCheck = () => console.log('Checking name...');
+
+// Run nameCheck() before each of the tests inside describe()
+describe('Checking names', () => {
+  beforeEach(() => nameCheck());
+
+  test('User is Major', () => {
+    const user = 'Major';
+    expect(user).toBe('Major');
+  });
+
+  test('User is Tom', () => {
+    const user = 'Tom';
+    expect(user).toBe('Tom');
+  });
+});
 
 // toBe
 test('Adds 2 + 2 to equal 4', () => {
